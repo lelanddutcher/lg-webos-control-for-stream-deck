@@ -91,10 +91,6 @@ com.leland.lg-webos-control.sdPlugin/
 
 The package is built with the official Elgato CLI through `npm run pack`.
 
-## Screenshots
-
-![Feature overview](marketplace-assets/gallery-01-features-1920x960.png)
-
 ## Privacy and network behavior
 
 LG webOS Control is local-first. Commands are sent over the local network rather than through LG ThinQ cloud automations, Google Home, or another third-party service. Pairing credentials remain local to the user's machine.
