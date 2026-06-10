@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "UUID": "com.leland.lg-webos-control",
+  "Name": "LG webOS Control",
+  "Author": "Leland Dutcher and contributors",
+  "Description": "Control LG webOS TV volume, mute, apps, inputs, and media from Stream Deck over the local network.",
+  "Version": "0.3.1.0",
+  "SDKVersion": 3,
+  "Software": {
+    "MinimumVersion": "6.9"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.15"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20"
+  },
+  "CodePath": "bin/plugin.js",
+  "Category": "LG webOS Control",
+  "CategoryIcon": "imgs/category-icon",
+  "Icon": "imgs/plugin-icon",
+  "Actions": [
+    {
+      "UUID": "com.leland.lg-webos-control.action",
+      "Name": "LG webOS Control",
+      "Tooltip": "Control an LG webOS TV over the local network.",
+      "Icon": "imgs/action-icon",
+      "Controllers": [
+        "Keypad",
+        "Encoder"
+      ],
+      "PropertyInspectorPath": "ui/property-inspector.html",
+      "States": [
+        {
+          "Image": "imgs/key",
+          "Title": "",
+          "TitleAlignment": "middle"
+        }
+      ],
+      "Encoder": {
+        "layout": "$B1",
+        "TriggerDescription": {
+          "Rotate": "Adjust TV volume",
+          "Push": "Toggle mute",
+          "Touch": "Play / pause media"
+        }
+      }
+    }
+  ]
+}

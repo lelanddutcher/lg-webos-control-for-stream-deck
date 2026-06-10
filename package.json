@@ -1,0 +1,27 @@
+{
+  "name": "lg-webos-streamdeck-plugin",
+  "version": "0.3.1",
+  "private": false,
+  "description": "LG webOS TV control plugin for Elgato Stream Deck and Stream Deck + dials.",
+  "scripts": {
+    "check": "node --check com.leland.lg-webos-control.sdPlugin/bin/plugin.js",
+    "pack": "npx --yes @elgato/cli@1.7.4 pack com.leland.lg-webos-control.sdPlugin --force --output dist --no-update-check",
+    "pack:legacy": "python3 _deprecated/scripts/pack.py"
+  },
+  "dependencies": {
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "lucide-static": "^1.17.0"
+  },
+  "license": "MIT",
+  "author": "Leland Dutcher",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lelanddutcher/lg-webos-control-for-stream-deck.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lelanddutcher/lg-webos-control-for-stream-deck/issues"
+  },
+  "homepage": "https://github.com/lelanddutcher/lg-webos-control-for-stream-deck#readme"
+}

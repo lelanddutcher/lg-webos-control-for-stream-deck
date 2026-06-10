@@ -1,0 +1,10 @@
+# dev-only artifacts
+icon-sheet.html
+*.log
+logs/
+__pycache__/
+.DS_Store
+
+# never ship local pairing/config files
+lg-webos-config.json
+tv-pairings.json

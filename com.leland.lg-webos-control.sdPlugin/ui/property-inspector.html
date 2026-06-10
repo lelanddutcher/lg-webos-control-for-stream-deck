@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LG webOS Control</title>
+  <style>
+    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; padding: 14px; background: #202225; color: #f3f4f6; font-size: 12px; }
+    h1 { font-size: 14px; margin: 0 0 10px; }
+    fieldset { border: 1px solid #3b3f46; border-radius: 8px; margin: 0 0 12px; padding: 10px; }
+    legend { color: #d1d5db; padding: 0 4px; }
+    label { display: block; margin: 8px 0 4px; color: #d1d5db; }
+    input, select, textarea, button { box-sizing: border-box; width: 100%; border-radius: 6px; border: 1px solid #4b5563; background: #111827; color: #f9fafb; padding: 7px 8px; font: inherit; }
+    button { cursor: pointer; background: #374151; border-color: #6b7280; margin-top: 8px; }
+    button.primary { background: #a50034; border-color: #d13d68; }
+    button:disabled { opacity: .55; cursor: default; }
+    .row { display: grid; grid-template-columns: 1fr 84px; gap: 8px; align-items: end; }
+    .inline { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .status { min-height: 18px; margin-top: 8px; color: #9ca3af; white-space: pre-wrap; }
+    .ok { color: #86efac; }
+    .bad { color: #fca5a5; }
+    .hint { color: #9ca3af; line-height: 1.35; margin-top: 6px; }
+    .hidden { display: none; }
+    code { color: #e5e7eb; background: #111827; padding: 1px 3px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>LG webOS Control</h1>
+
+  <fieldset>
+    <legend>TV</legend>
+    <label for="host">TV IP / host</label>
+    <div class="row">
+      <input id="host" placeholder="192.168.1.25" />
+      <select id="portMode" title="Port">
+        <option value="auto">auto</option>
+        <option value="3001">3001</option>
+        <option value="3000">3000</option>
+      </select>
+    </div>
+    <div class="inline">
+      <button id="scan">Scan for TVs</button>
+      <button id="pair" class="primary">Pair / Re-pair</button>
+    </div>
+    <label for="devices">Discovered / paired TVs</label>
+    <select id="devices"><option value="">none yet</option></select>
+    <div id="tvStatus" class="status">not connected</div>
+    <div class="hint">pairing happens locally. approve the prompt on the TV. the client key is stored on this Mac, not in Stream Deck profile export.</div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Action</legend>
+    <label for="actionType">Button does</label>
+    <select id="actionType">
+      <option value="volume-up">Volume up</option>
+      <option value="volume-down">Volume down</option>
+      <option value="mute-toggle">Toggle mute</option>
+      <option value="mute">Mute</option>
+      <option value="unmute">Unmute</option>
+      <option value="volume-set">Set volume preset</option>
+      <option value="launch">Launch app</option>
+      <option value="input">Switch input</option>
+      <option value="media-play-pause">Play / pause toggle</option>
+      <option value="media-play">Media play</option>
+      <option value="media-pause">Media pause</option>
+      <option value="media-stop">Media stop</option>
+      <option value="media-rewind">Media rewind</option>
+      <option value="media-fast-forward">Media fast-forward</option>
+      <option value="status">Show status</option>
+      <option value="toast">Toast message</option>
+    </select>
+
+    <div id="volumeBox" class="conditional hidden">
+      <label for="volume">Volume preset</label>
+      <input id="volume" type="number" min="0" max="100" step="1" value="50" />
+    </div>
+
+    <div id="appBox" class="conditional hidden">
+      <label for="appSelect">App</label>
+      <select id="appSelect"><option value="">load apps...</option></select>
+      <input id="appId" placeholder="manual app id, e.g. spotify-beehive" />
+      <button id="loadApps">Load apps from TV</button>
+    </div>
+
+    <div id="inputBox" class="conditional hidden">
+      <label for="inputSelect">Input</label>
+      <select id="inputSelect"><option value="">load inputs...</option></select>
+      <input id="inputId" placeholder="manual input id, e.g. HDMI_2" />
+      <button id="loadInputs">Load inputs from TV</button>
+    </div>
+
+    <div id="toastBox" class="conditional hidden">
+      <label for="toastMessage">Toast message</label>
+      <textarea id="toastMessage" rows="2">hello from Stream Deck</textarea>
+    </div>
+
+    <label for="label">Advanced: optional text overlay</label>
+    <input id="label" placeholder="blank = icon only" />
+    <div class="hint">recommended test buttons: <code>Volume up</code>, <code>Volume down</code>, <code>Toggle mute</code>, and <code>Play / pause toggle</code>.</div>
+  </fieldset>
+
+  <script src="pi.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+node_modules/
+dist/
+*.streamDeckPlugin
+.DS_Store
+*.log
+
+# local webOS pairing/config files
+lg-webos-config.json
+tv-pairings.json
+*pairings*.json
+
+# private/dev handoff notes
+_deprecated/
+FINAL-*.md
+STREAMDECK-PLUGIN-DEV-RESEARCH.md
+ICON-QA-NOTES.md
+com.leland.lg-webos-control.sdPlugin/icon-sheet.html
+
+# generated marketplace helper sources/bundle
+marketplace-assets/_render-html/
+marketplace-assets/*.zip
